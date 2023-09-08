@@ -94,7 +94,7 @@ def batch_minimax_search(game_state, model):
     for index, node in enumerate(leaf_nodes):
         if node.game_state.current_player == 1:
             node.evaluation = leaf_node_evaluations[index][0]
-            # [0] because for some reason .predict encloses each entry in a []
+            # [0] because for some reason .predict encloses each entry in a [] (i.e. is shape (X, 1))
         else: # In this case the current player is white and we need to invert eval
             # since our prediction is based on how good the position is for current player
             node.evaluation = 1 - leaf_node_evaluations[index][0]

@@ -2594,12 +2594,17 @@ input, select, textarea {
 				position: relative;
 				display: block;
 				width: 100%;
+				aspect-ratio: 1;
+				display:flex;
+				justify-content: center;
+				align-items: center;
 				border-radius: 4px;
 				overflow: hidden;
 			}
 
 				.tiles article > .image img {
 					display: block;
+					aspect-ratio: 1;
 					width: 100%;
 				}
 
@@ -2618,7 +2623,7 @@ input, select, textarea {
 					height: 100%;
 					opacity: 1.0;
 					z-index: 1;
-					opacity: 0.8;
+					opacity: 0.85;
 				}
 
 				.tiles article > .image:after {
@@ -2707,14 +2712,17 @@ input, select, textarea {
 
 			.tiles article.style1 > .image:before {
 				background-color: #7bd0c1;
+				opacity: 0.8;
 			}
 
 			.tiles article.style2 > .image:before {
 				background-color: #7ecaf6;
+				opacity: 0.9;
 			}
 
 			.tiles article.style3 > .image:before {
 				background-color: #f2849e;
+				opacity: 0.7;
 			}
 
 			.tiles article.style4 > .image:before {
@@ -2829,7 +2837,7 @@ input, select, textarea {
 /* Header */
 
 	#header {
-		padding: 8em 0 0.1em 0 ;
+		padding: 6em 0 0.1em 0 ;
 	}
 
 		#header .logo {

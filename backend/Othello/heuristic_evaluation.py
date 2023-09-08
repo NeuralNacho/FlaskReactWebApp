@@ -343,7 +343,7 @@ def alpha_beta_search(game_state, search_state):
                     if number_not_to_reduce >= 2: 
                         # Previous iteration has cut this node out in this case
                         extra_depth_to_reduce += 1
-            if (64 - number_of_bits_set(game_state.black_bitboard | game_state.white_bitboard)) < 8:
+            if (64 - number_of_bits_set(game_state.black_bitboard | game_state.white_bitboard)) < 10:
                 # If 7 or less moves left to be played want perfect play
                 extra_depth_to_reduce = 0 
             new_game_state = OthelloGameState(game_state.black_bitboard, \
@@ -387,7 +387,7 @@ def alpha_beta_search(game_state, search_state):
                     extra_depth_to_reduce = int(search_state.depth / 3)
                     if number_not_to_reduce >= 2: 
                         extra_depth_to_reduce += 1
-            if (64 - number_of_bits_set(game_state.black_bitboard | game_state.white_bitboard)) < 8:
+            if (64 - number_of_bits_set(game_state.black_bitboard | game_state.white_bitboard)) < 10:
                 extra_depth_to_reduce = 0
             new_game_state = OthelloGameState(game_state.black_bitboard, \
                         game_state.white_bitboard, game_state.current_player)

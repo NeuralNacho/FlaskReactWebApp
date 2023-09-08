@@ -22,18 +22,22 @@ def get_engine_move():
         
         start_time = time.time()
 
-        if engine_to_use == 'Small Network':
+        if engine_to_use == 'Small Supervised AI':
             loaded_model = load_model('./backend/Othello/Neural_Net/depth7_small_model.keras')
             move, evaluation, number_of_nodes = perfect_end_search(game_state, loaded_model)
             evaluation *= 64
             evaluation -= 32
             evaluation = "{:.2f}".format(evaluation)
-        elif engine_to_use == 'Large Network':
+        elif engine_to_use == 'Large Supervised AI':
             loaded_model = load_model('./backend/Othello/Neural_Net/depth7_large_model.keras')
             move, evaluation, number_of_nodes = perfect_end_search(game_state, loaded_model)
             evaluation *= 64
             evaluation -= 32
             evaluation = "{:.2f}".format(evaluation)
+        elif engine_to_use == 'Small RL AI':
+            pass
+        if engine_to_use == 'Large RL AI':
+            pass
         else:
             depth = int(engine_to_use[-1]) # e.g. Have something like engine_to_use = Non-AI Depth 5
             move, evaluation, number_of_nodes = iterative_deepening_search(game_state, depth)
