@@ -22,10 +22,10 @@ def get_evaluation():
         
         start_time = time.time()
 
-        if engine_to_use == 'Small Network':
+        if engine_to_use == 'Small Supervised AI':
             loaded_model = load_model('./backend/Othello/Neural_Net/depth7_small_model.keras')
             evaluations_board, number_of_nodes = evaluation_search(game_state, loaded_model)
-        elif engine_to_use == 'Large Network':
+        elif engine_to_use == 'Large Supervised AI':
             loaded_model = load_model('./backend/Othello/Neural_Net/depth7_large_model.keras')
             evaluations_board, number_of_nodes = evaluation_search(game_state, loaded_model)
         else:

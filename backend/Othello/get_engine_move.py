@@ -34,11 +34,8 @@ def get_engine_move():
             evaluation *= 64
             evaluation -= 32
             evaluation = "{:.2f}".format(evaluation)
-        elif engine_to_use == 'Small RL AI':
-            pass
-        if engine_to_use == 'Large RL AI':
-            pass
         else:
+            print('Engine to use:', engine_to_use)
             depth = int(engine_to_use[-1]) # e.g. Have something like engine_to_use = Non-AI Depth 5
             move, evaluation, number_of_nodes = iterative_deepening_search(game_state, depth)
         move = get_move_index(move)

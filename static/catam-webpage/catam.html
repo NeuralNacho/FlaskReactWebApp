@@ -3,14 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./catam.css" />
-    <title> Statistics Project </title>
+    <title>Tabbed PDF Viewer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .tab-buttons {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            background-color: #000000;
+        }
+
+        .tab {
+            display: inline-block;
+            padding: 10px 30px;
+            margin-left: 2px;
+            margin-right: 2px;
+            border-radius: 8px;
+            background-color: rgb(46, 46, 46);
+            cursor: pointer;
+            color: white;
+        }
+
+        .tab:hover {
+            background-color: #c3c3c3;
+        }
+
+        /* Content container styles */
+        .content-container {
+            /* border: 1px solid #ddd; */
+            /* padding: 20px; */
+            flex-grow: 1; 
+            height: 100%;
+            overflow: auto; /* Add a scrollbar when content overflows */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('moroccan-flower-dark.jpg');
+            background-size: 100px; /* Adjust as needed */
+        }
+
+        .content iframe {
+            height: calc(100vh - 50px);
+            width: 820px; /* 820 is width of document */
+            border: none;  /* Remove iframe border */
+            border-bottom: 2px solid #525659;
+            overflow-x: hidden;
+        }
+
+        /* Hide content initially */
+        .content {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-    <div id="pdf-container">
-        <canvas id="pdf-render"></canvas>
+    <div class="tab-buttons">
+        <div class="tab" onclick="openTab('tab1')"> Questions </div>
+        <div class="tab" onclick="openTab('tab2')"> Report </div>
+        <a class="tab" href="/static/stats-project-info.html"> Information </a>
     </div>
-    <script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
-    <script src="./catam.js"></script>
+    <div class="content-container">
+        <div class="content" id="tab1">
+            <iframe src="CATAM-10pt15-Questions.pdf"></iframe>
+        </div>
+        <div class="content" id="tab2">
+            <iframe src="CATAM-10.15-Final.pdf"></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Automatically open the Questions tab when the page loads
+        function openTab(tabId) {
+            // Hide all content
+            const contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.style.display = 'none');
+
+            // Show the selected tab's content
+            document.getElementById(tabId).style.display = 'block';
+        }
+
+        window.onload = function () {
+            openTab('tab2');
+        };
+    </script>
 </body>
 </html>
